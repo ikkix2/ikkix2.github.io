@@ -1,0 +1,30 @@
+name: Deploy Github Pages
+
+on:
+  push:
+    branches:
+      - hugo
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v1
+    - name: Clone submodule
+      run: git submodule update --init --recursive
+    - name: Hugo setup
+      uses: peaceiris/actions-hugo@v2.3.2
+      with:
+        # The Hugo version to download (if necessary) and use. Example: 0.58.2
+        hugo-version: 0.62.2
+        # Download (if necessary) and use Hugo extended version. Example: true
+        extended: true
+    - name: Build Hugo
+      run: hugo -v
+    - name: GitHub Pages action
+      uses: peaceiris/actions-gh-pages@v2.5.1
+      env:
+        ACTIONS_DEPLOY_KEY: ${{ secrets.ACTIONS_DEPLOY_KEY }}
+        PUBLISH_BRANCH: master
+        PUBLISH_DIR: ./public
