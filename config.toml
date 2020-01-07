@@ -1,4 +1,4 @@
-baseURL = "http://ikkix2.github.io/"
+baseURL = "https://ikkix2.github.io/"
 languageCode = "ja-jp"
 title = "inote"
 theme = "hugo-theme-novela"
