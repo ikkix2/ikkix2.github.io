@@ -1,0 +1,5 @@
+baseURL = "http://ikkix2.github.io/"
+languageCode = "ja-jp"
+title = "inote"
+theme = "hugo-theme-novela"
+canonifyurls = true
