@@ -3,11 +3,58 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://ikkix2.github.io/</loc>
+    <lastmod>2020-01-01T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://ikkix2.github.io/post/</loc>
+    <lastmod>2020-01-01T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://ikkix2.github.io/2020/01/%E3%83%86%E3%82%B9%E3%83%88/</loc>
+    <lastmod>2020-01-01T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://ikkix2.github.io/2019/03/markdown-syntax-guide/</loc>
+    <lastmod>2019-03-11T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://ikkix2.github.io/2019/03/placeholder-text/</loc>
+    <lastmod>2019-03-09T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://ikkix2.github.io/2019/03/math-typesetting/</loc>
+    <lastmod>2019-03-08T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://ikkix2.github.io/2019/03/emoji-support/</loc>
+    <lastmod>2019-03-05T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://ikkix2.github.io/about/</loc>
+  </url>
+  
+  <url>
+    <loc>https://ikkix2.github.io/archives/</loc>
+  </url>
+  
+  <url>
+    <loc>https://ikkix2.github.io/authors/</loc>
+  </url>
+  
+  <url>
     <loc>https://ikkix2.github.io/categories/</loc>
   </url>
   
   <url>
-    <loc>https://ikkix2.github.io/</loc>
+    <loc>https://ikkix2.github.io/authors/hugo-authors/</loc>
   </url>
   
   <url>
