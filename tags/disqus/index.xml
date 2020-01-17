@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>disqus on inote</title>
+    <title>disqus on 男・I氏一世一代の創業奮闘記（仮）</title>
     <link>https://ikkix2.github.io/tags/disqus/</link>
-    <description>Recent content in disqus on inote</description>
+    <description>Recent content in disqus on 男・I氏一世一代の創業奮闘記（仮）</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja</language>
     <lastBuildDate>Mon, 15 Jun 2015 00:00:00 +0000</lastBuildDate>
@@ -13,10 +13,10 @@
     
     <item>
       <title>Welcome to Tranquilpeak 0.4.7-BETA</title>
-      <link>https://ikkix2.github.io/2015/06/welcome-to-tranquilpeak-0.4.7-beta/</link>
+      <link>https://ikkix2.github.io/post_backup/welcome-to-the-new-tranquilpeak/</link>
       <pubDate>Mon, 15 Jun 2015 00:00:00 +0000</pubDate>
       
-      <guid>https://ikkix2.github.io/2015/06/welcome-to-tranquilpeak-0.4.7-beta/</guid>
+      <guid>https://ikkix2.github.io/post_backup/welcome-to-the-new-tranquilpeak/</guid>
       <description>&lt;p&gt;Tranquilpeak is a gorgeous responsive theme for Hugo blog framework. It has many features and integrated services to improve user experience.&lt;/p&gt;</description>
     </item>
     
