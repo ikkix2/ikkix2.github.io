@@ -1,10 +1,10 @@
 baseURL = "https://ikkix2.github.io/"
 languageCode = "ja"
-title = "inote"
+title = "男・I氏一世一代の創業奮闘記（仮）"
 theme = "hugo-tranquilpeak-theme"
 
 disqusShortname = "hugo-tranquilpeak-theme"
-# googleAnalytics = "UA-123-45"
+googleAnalytics = "UA-96600624-2"
 paginate = 7
 canonifyurls = true
 
@@ -17,53 +17,74 @@ canonifyurls = true
   archive = "archives"
 
 [author]
-  name = "Ikki Tanahara"
-  bio = "Super bio with markdown support **COOL**"
-  job = "忍者"
+  name = "い"
+  bio = "ぷよクエに時間とお金を溶かす日々を過ごす。詳細は<a href='https://twitter.com/ikkix2' target='_blank'>Twitter</a>をどうぞ。"
+  job = "デザイナー（希望）"
   location = "Tokyo, Japan"
   # Your profile picture
-  picture = "https://cdn1.iconfinder.com/data/icons/ninja-things-1/1772/ninja-simple-512.png"
+  picture = "https://ja.gravatar.com/userimage/15938535/0c2c3b5c5d467a53cb1556446f9d14dc.png?size=200"
   # Your Twitter username without the @. E.g : thibaudlepretre
   twitter = "ikkix2"
 
 # Menu Configuration
-[[menu.main]]
+ [[menu.main]]
   weight = 1
   identifier = "home"
-  name = "Home"
+  name = "トップ"
   pre = "<i class=\"sidebar-button-icon fa fa-lg fa-home\"></i>"
   url = "/"
 [[menu.main]]
   weight = 2
   identifier = "categories"
-  name = "Categories"
+  name = "カテゴリ別"
   pre = "<i class=\"sidebar-button-icon fa fa-lg fa-bookmark\"></i>"
   url = "/categories"
 [[menu.main]]
   weight = 3
   identifier = "tags"
-  name = "Tags"
+  name = "タグ別"
   pre = "<i class=\"sidebar-button-icon fa fa-lg fa-tags\"></i>"
   url = "/tags"
 [[menu.main]]
   weight = 4
   identifier = "archives"
-  name = "Archives"
+  name = "アーカイブ"
   pre = "<i class=\"sidebar-button-icon fa fa-lg fa-archive\"></i>"
   url = "/archives"
-[[menu.main]]
-  weight = 5
-  identifier = "about"
-  name = "About"
-  pre = "<i class=\"sidebar-button-icon fa fa-lg fa-question\"></i>"
-  url = "/#about"
+# [[menu.main]]
+#  weight = 4
+#  identifier = "about"
+#  name = "About"
+#  pre = "<i class=\"sidebar-button-icon fa fa-lg fa-question\"></i>"
+#  url = "/#about"
+
+# [[menu.links]]
+#  weight = 1
+#  identifier = "github"
+#  name = "GitHub"
+#  pre = "<i class=\"sidebar-button-icon fa fa-lg fa-github\"></i>"
+#  url = "https://github.com/ikkix2"
 
 [[menu.links]]
-  weight = 1
-  identifier = "github"
-  name = "GitHub"
-  pre = "<i class=\"sidebar-button-icon fa fa-lg fa-github\"></i>"
-  url = "https://github.com/kakawait"
+ weight = 1
+ identifier = "twitter"
+ name = "Twitter"
+ pre = "<i class=\"sidebar-button-icon fa fa-lg fa-twitter\"></i>"
+ url = "https://twitter.com/ikkix2"
+
+[[menu.links]]
+ weight = 2
+ identifier = "note"
+ name = "note"
+ pre = "<i class=\"sidebar-button-icon fa fa-lg fa-sticky-note\"></i>"
+ url = "https://note.com/ikkix2"
+
+#[[menu.links]]
+# weight = 3
+# identifier = "instagram"
+# name = "Instagram"
+# pre = "<i class=\"sidebar-button-icon fa fa-lg fa-instagram\"></i>"
+# url = "https://www.instagram.com/ikki.tanahara/"
 
 [[menu.misc]]
   weight = 1
@@ -78,6 +99,7 @@ canonifyurls = true
   # Months (not work with short month like "jan", "feb", etc) are translated if translation exists on i18n folders
   # Default format is: January 2, 2006
   # dateFormat = "2 January 2006"
+  dateFormat = "2006年01月02日"
 
   # Global keywords configuration. Following keywords will be add to every pages
   # keywords = ["development", "next-gen"]
@@ -93,7 +115,7 @@ canonifyurls = true
   # If false it will flat categories.
   hierarchicalCategories = true
 
-  description = "Hugo tranquilpeak theme demo"
+  description = "このサイトは起業を目指すための備忘録と、趣味のガーデニングについて語ります。"
 
   # Customization
   # Define the behavior of the sidebar
@@ -149,8 +171,8 @@ canonifyurls = true
 
   # Custom CSS. Put here your custom CSS files. They are loaded after the theme CSS;
   # they have to be referred from static root. Example
-  # [[params.customCSS]]
-  #   href = "css/mystyle.css"
+  [[params.customCSS]]
+    href = "css/mystyle.css"
 
   # Custom JS. Put here your custom JS files. They are loaded after the theme JS;
   # they have to be referred from static root. Example

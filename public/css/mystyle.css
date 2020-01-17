@@ -1,0 +1,22 @@
+nav#sidebar a {
+	color: #fff;
+}
+
+nav#sidebar a:hover {
+	font-weight: bold;
+	text-decoration: none;
+}
+
+div#main p, div#main li {
+	font-family: "Yu Gothic", "Hiragino Kaku Gothic ProN", "Meiryo", sans-serif !important;
+	line-height: 2;
+	color: #3d484f;
+}
+
+.postShorten-wrap {
+	margin-bottom: 15px;
+}
+
+.post-actions-wrap ul.post-action-nav li.post-action {
+	min-width: 60px;
+}
