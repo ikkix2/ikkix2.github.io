@@ -1,6 +1,6 @@
 baseURL = "https://ikkix2.github.io/"
 languageCode = "ja"
-title = "男・I氏一世一代の創業奮闘記（仮）"
+title = "今日も今日とて（仮）"
 theme = "hugo-tranquilpeak-theme"
 
 disqusShortname = "hugo-tranquilpeak-theme"
@@ -115,7 +115,7 @@ canonifyurls = true
   # If false it will flat categories.
   hierarchicalCategories = true
 
-  description = "このサイトは起業を目指すための備忘録と、趣味のガーデニングについて語ります。"
+  description = "日々思ったことや感じたことを綴っております。"
 
   # Customization
   # Define the behavior of the sidebar
