@@ -1,3 +1,7 @@
+div.post-content em {
+	color: #888;
+}
+
 nav#sidebar a {
 	color: #fff;
 }

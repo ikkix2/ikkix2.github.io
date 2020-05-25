@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <title>VR テトリヌ</title>
+    <meta property="og:title" content="VR テトリヌ">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://deployordie.sakura.ne.jp/gs/190514/">
+    <meta property="og:image" content="https://deployordie.sakura.ne.jp/gs/190514/images/icon/icon-256x256.png">
+    <meta name="twitter:card" content="summary">
+    <meta name="apple-mobile-web-app-title" content="テトリヌ">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="manifest" href="manifest.json">
+    <link rel="apple-touch-icon" href="images/icon/icon-192x192.png" sizes="192x192">
+    <link rel="stylesheet" href="css/style.css">
+    <!-- A-frame -->
+    <script src="https://aframe.io/releases/0.9.1/aframe.min.js"></script>
+    <script src="https://unpkg.com/aframe-environment-component/dist/aframe-environment-component.min.js"></script>
+    <!-- mp3再生対応 -->
+    <script src="https://api.html5media.info/1.2.2/html5media.min.js"></script>
+    <!-- 音声再生対応 -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/howler/2.1.1/howler.min.js"></script>
+    <!-- Firebase -->
+    <script src="https://www.gstatic.com/firebasejs/6.0.2/firebase.js"></script>
+    <!-- Service Worker -->
+    <script src="sw.js"></script>
+    <script>
+        window.addEventListener('load', function () {
+            if ('serviceWorker' in navigator) {
+                navigator.serviceWorker.register("./sw.js")
+                    .then(function (registration) {
+                        console.log("serviceWorker registed.");
+                    }).catch(function (error) {
+                        console.warn("serviceWorker error.", error);
+                    });
+            }
+        });
+    </script>
+    <!-- GTM -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-96600624-2"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'UA-96600624-2');
+    </script>
+</head>
+
+<body>
+    <!-- 左上UI -->
+    <div id="optionWindow">
+        <span id="changeView">
+            <img src="images/video.png" width="30" height="30">
+        </span>
+        <span id="changeAudio">
+            <img src="images/audio.png" width="30" height="30" id="audioIcon">
+        </span>
+    </div>
+
+    <!-- 右上UI -->
+    <div id="debugWindow">
+        <div id="hiscore"></div>
+        <div id="scoreandlevel">
+            <div id="score"></div>
+            <div id="level"></div>
+        </div>
+        <div id="description">
+            ←↑→↓キー：移動<br>
+            スペースキー：回転<br>
+            1, 2, 3キー：視点変更<br>
+        </div>
+        <div id="chatbox">
+            「左」「右」「回れ」で音声入力<br>
+            （※Chromeのみ）
+        </div>
+        <div id="tetris"></div>
+    </div>
+
+    <!-- ゲームオーバー時UI  -->
+    <div id="restart">
+        <a href="javascript:location.reload();">もう一回？</a>
+    </div>
+
+    <!-- スマホ向けUI  -->
+    <div id="mobileUI">
+        <div id="mobileController">
+            <div id="leftButton"></div>
+            <div id="downButton"></div>
+            <div id="rightButton"></div>
+            <div id="rotateButton"></div>
+        </div>
+    </div>
+
+    <!-- A-Frameここから -->
+    <a-scene inspector="url: https://aframe.io/releasesÎ/0.3.0/aframe-inspector.min.js" renderer="antialias: true">
+        <a-assets>
+            <img id="blueBlock" src="images/blue.png">
+            <img id="cyanBlock" src="images/cyan.png">
+            <img id="grayBlock" src="images/gray.png">
+            <img id="greenBlock" src="images/green.png">
+            <img id="orangeBlock" src="images/orange.png">
+            <img id="purpleBlock" src="images/purple.png">
+            <img id="redBlock" src="images/red.png">
+            <img id="yellowBlock" src="images/yellow.png">
+            <img id="gameOver" src="images/gameover.png">
+        </a-assets>
+        <!-- 光源 -->
+        <a-light type="ambient" color="#B0B0B0" position="0 40 0" id="mainLight"></a-light>
+        <a-light type="point" intensity="2" position="2 4 4" id="pointLight"></a-light>
+
+        <!-- プレイ画面 -->
+        <a-entity id="playBox" position="-2 16 10"></a-entity>
+
+        <a-entity id="gameOver">
+            <a-plane src="#gameOver" rotation="0 -180 0" position="0 18 9" width="30" height="30"
+                     material="transparent:true" visible="false" id="gameOverImage"></a-plane>
+        </a-entity>
+
+        <!-- カメラ -->
+        <a-entity id="camera">
+            <a-camera wasd-controls-enabled="false">
+            </a-camera>
+        </a-entity>
+
+        <!-- 地面 -->
+        <a-entity environment="preset: forest; dressingAmount: 500; lighting: none;"></a-entity>
+    </a-scene>
+
+    <!-- スクリプト読み込みここから -->
+    <script src="js/tetrominoes.js"></script>
+    <script src="js/tetris.js"></script>
+
+    <script>
+        // キー操作
+        document.addEventListener("keydown", function (event) {
+            let erNum;
+
+            if (gameOver) {
+                return false;
+            }
+
+            if (event.keyCode == 37) {
+                keyDownLeft();
+            } else if (event.keyCode == 16 || event.keyCode == 32 || event.keyCode == 90) {
+                keyDownRotate();
+            } else if (event.keyCode == 39) {
+                keyDownRight();
+            } else if (event.keyCode == 38 || event.keyCode == 40) {
+                keyDownDown();
+            } else if (event.keyCode == 49) {
+                camera.changePos(1);
+            } else if (event.keyCode == 50) {
+                camera.changePos(2);
+            } else if (event.keyCode == 51) {
+                camera.changePos(3);
+            }
+
+
+            if (p.locked) {
+                erNum = board.eraseLine();
+                sound.play(3);
+
+                if (erNum > 0) {
+                    sound.play(4);
+                    speed = speed * 0.8;
+                    level++;
+
+                    if (erNum > 2) {
+                        sound.play(6); // 歓声
+                    }
+
+                    score += SCORES[erNum] * level;
+                }
+
+                p = new Piece();
+            }
+
+            display.update();
+        });
+
+        // スマホ操作
+        document.querySelector("#leftButton").addEventListener("touchstart", function (event) {
+            keyDownLeft();
+        });
+
+        document.querySelector("#rightButton").addEventListener("touchstart", function (event) {
+            keyDownRight();
+        });
+
+        document.querySelector("#downButton").addEventListener("touchstart", function (event) {
+            keyDownDown();
+        });
+
+        document.querySelector("#rotateButton").addEventListener("touchstart", function (event) {
+            keyDownRotate();
+        });
+
+        // PCでも利用するのでClick
+        document.querySelector("#changeView").addEventListener("click", function (event) {
+            camera.changePos(0);
+        });
+
+        document.querySelector("#changeAudio").addEventListener("click", function (event) {
+            sound.toggle();
+
+            if (sound.playFlag) {
+                sound.play(0);
+                document.querySelector("#audioIcon").style.opacity = 1;
+            } else {
+                sound.stop(0);
+                document.querySelector("#audioIcon").style.opacity = 0.5;
+            }
+        });
+
+        document.querySelector("#leftButton").addEventListener('touchend', event => {
+            event.preventDefault();
+        }, false);
+
+        document.querySelector("#rightButton").addEventListener('touchend', event => {
+            event.preventDefault();
+        }, false);
+
+        document.querySelector("#downButton").addEventListener('touchend', event => {
+            event.preventDefault();
+        }, false);
+
+        document.querySelector("#rotateButton").addEventListener('touchend', event => {
+            event.preventDefault();
+        }, false);
+
+        // 操作関数
+        function keyDownLeft() {
+            if (gameOver) {
+                return false;
+            }
+
+            sound.play(1);
+            p.moveLeft();
+            dropStart = Date.now();
+        }
+
+        function keyDownRotate() {
+            if (gameOver) {
+                return false;
+            }
+
+            sound.play(2);
+            p.rotate();
+            dropStart = Date.now();
+        }
+
+        function keyDownRight() {
+            if (gameOver) {
+                return false;
+            }
+
+            sound.play(1);
+            p.moveRight();
+            dropStart = Date.now();
+        }
+
+        function keyDownDown() {
+            if (gameOver) {
+                return false;
+            }
+
+            p.moveDown();
+        }
+
+        // メイン関数
+        function main() {
+            let now = Date.now();
+            let delta = now - dropStart;
+            let erNum;
+
+            // 落下処理
+            if (delta > speed) {
+                p.moveDown();
+                dropStart = Date.now();
+            }
+
+            if (p.locked) {
+                // 消去処理
+                erNum = board.eraseLine();
+                sound.play(3);
+
+                if (erNum > 0) {
+                    sound.play(4);
+                    speed = speed * 0.8;
+                    level++;
+
+                    if (erNum > 2) {
+                        sound.play(6);
+                    }
+
+                    score += SCORES[erNum] * level;
+                }
+
+                // 新ブロック作成処理
+                p = new Piece();
+            }
+
+            // ゲーム続行判定
+            if (!gameOver) {
+                requestAnimationFrame(main);
+                board.update();
+                display.update();
+            } else {
+                // ゲームオーバー時
+                display.showRestart();
+                sound.stop(0);
+                sound.play(7);
+                sound.play(5);
+
+                // ハイスコア入力
+                if (score > hiscore) {
+                    username = window.prompt("ハイスコア更新！名前を入力してね", "");
+                    newPostRef.setScore(username, score);
+                    hiscore = score;
+                    hiscore_holder = username;
+                    display.showScore();
+                }
+            }
+        }
+
+        main();
+        camera.changePos(1);
+        if (typeof webkitSpeechRecognition !== "undefined") {
+            rec.start(); // 音声入力
+        }
+
+        // * ToDo *
+        // ロゴ & スタート画面を作る
+        // リスタートを作りこむ
+        // ネクストブロックつける
+        // 地面設置時間を長くする
+    </script>
+</body>
+
+</html>

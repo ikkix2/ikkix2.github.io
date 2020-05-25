@@ -13,17 +13,12 @@
   </url>
   
   <url>
-    <loc>https://ikkix2.github.io/tags/tag1/</loc>
-    <lastmod>2020-01-14T02:00:00+09:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://ikkix2.github.io/tags/tag2/</loc>
-    <lastmod>2020-01-14T02:00:00+09:00</lastmod>
-  </url>
-  
-  <url>
     <loc>https://ikkix2.github.io/tags/</loc>
+    <lastmod>2020-01-14T02:00:00+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://ikkix2.github.io/tags/%E3%82%B2%E3%83%BC%E3%83%A0/</loc>
     <lastmod>2020-01-14T02:00:00+09:00</lastmod>
   </url>
   
@@ -33,52 +28,17 @@
   </url>
   
   <url>
-    <loc>https://ikkix2.github.io/categories/%E6%97%A5%E8%A8%98/</loc>
-    <lastmod>2020-01-14T02:00:00+09:00</lastmod>
-  </url>
-  
-  <url>
     <loc>https://ikkix2.github.io/</loc>
     <lastmod>2020-01-14T02:00:00+09:00</lastmod>
   </url>
   
   <url>
-    <loc>https://ikkix2.github.io/tags/disqus/</loc>
-    <lastmod>2015-06-15T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://ikkix2.github.io/tags/google-analytics/</loc>
-    <lastmod>2015-06-15T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://ikkix2.github.io/tags/gravatar/</loc>
-    <lastmod>2015-06-15T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://ikkix2.github.io/tags/hexo-theme/</loc>
-    <lastmod>2015-06-15T00:00:00+00:00</lastmod>
+    <loc>https://ikkix2.github.io/categories/%E6%97%A5%E8%A8%98/</loc>
+    <lastmod>2020-01-14T02:00:00+09:00</lastmod>
   </url>
   
   <url>
     <loc>https://ikkix2.github.io/post_backup/</loc>
-    <lastmod>2015-06-15T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://ikkix2.github.io/categories/releases/</loc>
-    <lastmod>2015-06-15T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://ikkix2.github.io/tags/responsive/</loc>
-    <lastmod>2015-06-15T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://ikkix2.github.io/categories/tranquilpeak/</loc>
     <lastmod>2015-06-15T00:00:00+00:00</lastmod>
   </url>
   
@@ -93,43 +53,8 @@
   </url>
   
   <url>
-    <loc>https://ikkix2.github.io/categories/features/</loc>
-    <lastmod>2015-05-28T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://ikkix2.github.io/tags/html-elements/</loc>
-    <lastmod>2015-05-28T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://ikkix2.github.io/tags/markdown/</loc>
-    <lastmod>2015-05-28T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://ikkix2.github.io/tags/github-theme/</loc>
-    <lastmod>2015-03-23T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://ikkix2.github.io/tags/highlight-code/</loc>
-    <lastmod>2015-03-23T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
     <loc>https://ikkix2.github.io/post_backup/highlighted-code-showcase/</loc>
     <lastmod>2015-03-23T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://ikkix2.github.io/tags/test/</loc>
-    <lastmod>2015-03-23T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://ikkix2.github.io/tags/tag-plugins/</loc>
-    <lastmod>2014-10-29T00:00:00+00:00</lastmod>
   </url>
   
   <url>

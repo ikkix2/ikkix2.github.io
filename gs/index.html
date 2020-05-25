@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Technology Showcase</title>
+	<script src="//cdn.jsdelivr.net/npm/vue"></script>
+    <script async src="//www.googletagmanager.com/gtag/js?id=UA-96600624-2"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'UA-96600624-2');
+    </script>
+</head>
+
+<body>
+	<header>
+		<h1 id="app-1">{{ message }}</h1>
+	</header>
+
+	<main>
+		<dl>
+			<dt><a href="./catcafe360/">リアルタイム360度動画配信</a></dt>
+			<dd>VR猫カフェを作りたい！と思って開発した渾身の一作。リアルタイム配信は終了</dd>
+			<dt>ゆいマップ</dt>
+			<dd>Twitterで助けを求める人を表示。社会の課題を可視化するはずが闇を可視化した地図（公開停止中）</dd>
+			<dt><a href="./3droutefinder/">3D Route Finder</a></dt>
+			<dd>本邦の世界遺産と病院がハイライトされる3D地図</dd>
+			<dt><a href="./tetrinu/">VR テトリヌ</a></dt>
+			<dd>VR試製第3作。「余計な機能」がコンセプト</dd>
+			<dt><a href="./oretan/">俺の単語帳 - おれたん</a></dt>
+			<dd>発音チェック機能付き英単語帳</dd>
+			<dt><a href="./web_vr_janken/">WebVR じゃんけん</a></dt>
+			<dd>VR試製第2作</dd>
+		</dl>
+	</main>
+
+	<footer>
+		<p>©い</p>
+	</footer>
+	<script>
+		var app1 = new Vue({
+			el: '#app-1',
+			data: { message: 'Technology Showcase' }
+		})
+	</script>
+</body>
+
+</html>

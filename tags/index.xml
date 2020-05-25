@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Tags on 男・I氏一世一代の創業奮闘記（仮）</title>
+    <title>Tags on 今日も今日とて（仮）</title>
     <link>https://ikkix2.github.io/tags/</link>
-    <description>Recent content in Tags on 男・I氏一世一代の創業奮闘記（仮）</description>
+    <description>Recent content in Tags on 今日も今日とて（仮）</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja</language>
     <lastBuildDate>Tue, 14 Jan 2020 02:00:00 +0900</lastBuildDate>
@@ -12,119 +12,11 @@
     
     
     <item>
-      <title>tag1</title>
-      <link>https://ikkix2.github.io/tags/tag1/</link>
+      <title>ゲーム</title>
+      <link>https://ikkix2.github.io/tags/%E3%82%B2%E3%83%BC%E3%83%A0/</link>
       <pubDate>Tue, 14 Jan 2020 02:00:00 +0900</pubDate>
       
-      <guid>https://ikkix2.github.io/tags/tag1/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>tag2</title>
-      <link>https://ikkix2.github.io/tags/tag2/</link>
-      <pubDate>Tue, 14 Jan 2020 02:00:00 +0900</pubDate>
-      
-      <guid>https://ikkix2.github.io/tags/tag2/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>disqus</title>
-      <link>https://ikkix2.github.io/tags/disqus/</link>
-      <pubDate>Mon, 15 Jun 2015 00:00:00 +0000</pubDate>
-      
-      <guid>https://ikkix2.github.io/tags/disqus/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>google analytics</title>
-      <link>https://ikkix2.github.io/tags/google-analytics/</link>
-      <pubDate>Mon, 15 Jun 2015 00:00:00 +0000</pubDate>
-      
-      <guid>https://ikkix2.github.io/tags/google-analytics/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>gravatar</title>
-      <link>https://ikkix2.github.io/tags/gravatar/</link>
-      <pubDate>Mon, 15 Jun 2015 00:00:00 +0000</pubDate>
-      
-      <guid>https://ikkix2.github.io/tags/gravatar/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>hexo theme</title>
-      <link>https://ikkix2.github.io/tags/hexo-theme/</link>
-      <pubDate>Mon, 15 Jun 2015 00:00:00 +0000</pubDate>
-      
-      <guid>https://ikkix2.github.io/tags/hexo-theme/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>responsive</title>
-      <link>https://ikkix2.github.io/tags/responsive/</link>
-      <pubDate>Mon, 15 Jun 2015 00:00:00 +0000</pubDate>
-      
-      <guid>https://ikkix2.github.io/tags/responsive/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>html elements</title>
-      <link>https://ikkix2.github.io/tags/html-elements/</link>
-      <pubDate>Thu, 28 May 2015 00:00:00 +0000</pubDate>
-      
-      <guid>https://ikkix2.github.io/tags/html-elements/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>markdown</title>
-      <link>https://ikkix2.github.io/tags/markdown/</link>
-      <pubDate>Thu, 28 May 2015 00:00:00 +0000</pubDate>
-      
-      <guid>https://ikkix2.github.io/tags/markdown/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>github theme</title>
-      <link>https://ikkix2.github.io/tags/github-theme/</link>
-      <pubDate>Mon, 23 Mar 2015 00:00:00 +0000</pubDate>
-      
-      <guid>https://ikkix2.github.io/tags/github-theme/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>highlight code</title>
-      <link>https://ikkix2.github.io/tags/highlight-code/</link>
-      <pubDate>Mon, 23 Mar 2015 00:00:00 +0000</pubDate>
-      
-      <guid>https://ikkix2.github.io/tags/highlight-code/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>test</title>
-      <link>https://ikkix2.github.io/tags/test/</link>
-      <pubDate>Mon, 23 Mar 2015 00:00:00 +0000</pubDate>
-      
-      <guid>https://ikkix2.github.io/tags/test/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>tag plugins</title>
-      <link>https://ikkix2.github.io/tags/tag-plugins/</link>
-      <pubDate>Wed, 29 Oct 2014 00:00:00 +0000</pubDate>
-      
-      <guid>https://ikkix2.github.io/tags/tag-plugins/</guid>
+      <guid>https://ikkix2.github.io/tags/%E3%82%B2%E3%83%BC%E3%83%A0/</guid>
       <description></description>
     </item>
     

@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+	<meta charset="UTF-8">
+	<title>WebVR じゃんけん</title>
+	<meta property="og:title" content="WebVR じゃんけん">
+	<meta property="og:type" content="website">
+	<meta property="og:url" content="https://ikkix2.github.io/static/gs/web_vr_janken/">
+	<meta property="og:image" content="https://ikkix2.github.io/static/gs/web_vr_janken/img/icon/icon-256x256.png">
+	<meta name="twitter:card" content="summary">
+	<meta name="apple-mobile-web-app-title" content="じゃんけん">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black">
+	<link rel="manifest" href="manifest.json">
+	<link rel="apple-touch-icon" href="img/icon/icon-192x192.png" sizes="192x192" />
+	<!-- v0.9系列だと、mmd読み込み時にSkinnedMeshのBoneがないと怒られる。a-mmdのmmdloaderに問題がある模様 -->
+	<script src="https://aframe.io/releases/0.8.2/aframe.min.js"></script>
+	<script
+			src="https://cdn.rawgit.com/kripken/ammo.js/dcab07bf0e7f2b4b64c01dc45da846344c8f50be/builds/ammo.js"></script>
+	<!-- <script src="https://cdn.rawgit.com/takahirox/aframe-outline/v1.1.1/build/aframe-outline.min.js"></script> -->
+	<script src="https://cdn.rawgit.com/takahirox/a-mmd/v1.0.3/build/a-mmd.min.js"></script>
+	<script src="https://unpkg.com/aframe-environment-component/dist/aframe-environment-component.min.js"></script>
+	<script src="sw.js"></script>
+	<script>
+		window.addEventListener('load', function () {
+			if ('serviceWorker' in navigator) {
+				navigator.serviceWorker.register("sw.js")
+					.then(function (registration) {
+						console.log("serviceWorker registed.");
+					}).catch(function (error) {
+						console.warn("serviceWorker error.", error);
+					});
+			}
+		});
+	</script>
+	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-96600624-2"></script>
+	<script>
+		window.dataLayer = window.dataLayer || [];
+		function gtag() { dataLayer.push(arguments); }
+		gtag('js', new Date());
+		gtag('config', 'UA-96600624-2');
+	</script>
+	<style>
+		#debugWindow {
+			position: absolute;
+			z-index: 255;
+			width: 80%;
+			height: 10%;
+			right: 10px;
+			top: 10px;
+			text-align: right;
+		}
+
+		#debugWindow a {
+			color: #fff;
+			text-decoration: none;
+			border: solid 1px #fff;
+			padding: 4px 16px;
+			font-size: 28px;
+		}
+	</style>
+</head>
+
+
+<body>
+	<script>
+		// じゃんけんクラス
+		let Janken = function () {
+			// 0 = グー, 1 = チョキ, 2 = パー
+			let cpuNum = Math.floor(Math.random() * 3);
+			let playerNum = 0;
+			let result = 'win';
+			let handtypes = [
+				{
+					'name': 'rock',
+					'win': 'scissors',
+					'lose': 'paper'
+				}, {
+					'name': 'scissors',
+					'win': 'paper',
+					'lose': 'rock'
+				}, {
+					'name': 'paper',
+					'win': 'rock',
+					'lose': 'scissors'
+				}
+			];
+
+			// 初期化処理
+			this.init = function (i) {
+				playerNum = i;
+				result = this.match();
+				this.debug();
+			}
+
+			// CPUの手を取得
+			this.getCpuNum = function () {
+				return cpuNum;
+			}
+
+			// 勝ち負け判定
+			this.match = function () {
+				switch (handtypes[playerNum].name) {
+					case handtypes[cpuNum].lose:
+						return 'win';
+						break;
+					case handtypes[cpuNum].win:
+						return 'lose';
+						break;
+					default:
+						return "draw";
+						break;
+				}
+			}
+
+			// デバッグ用値表示
+			this.debug = function () {
+				console.log("自分の手：" + handtypes[playerNum].name);
+				console.log("相手の手：" + handtypes[cpuNum].name);
+				console.log("勝敗判定：" + this.match());
+			}
+
+			// 結果表示
+			this.showResult = function () {
+				let scene = document.querySelector('a-scene');
+				let gm = document.createElement('a-plane');
+				gm.setAttribute('width', '1.6');
+				gm.setAttribute('height', '1.6');
+				gm.setAttribute('position', '0 2.8 1.5');
+				gm.setAttribute('material', 'transparent:true');
+				// gm.setAttribute('color', '#FF9500');
+				// gm.setAttribute('radius', '0.75');
+
+				if (result == 'win') {
+					gm.setAttribute('src', '#WinTexture');
+				} else if (result == 'lose') {
+					gm.setAttribute('src', '#LoseTexture');
+				} else {
+					gm.setAttribute('src', '#DrawTexture');
+				}
+
+				scene.appendChild(gm);
+			}
+		}
+
+		// キャラクタークラス
+		let Character = function () {
+			let scene = document.querySelector('a-scene');
+			// let scene = document.querySelector('#camera');
+			let mmd = document.createElement('a-entity');
+			let model = document.createElement('a-entity');
+			let audioFilePath = "./audio/nc74722.mp3";
+			let modelFilePath = "./mmd/alicia/MMD/Alicia_solid.pmx";
+			// let modelFilePath = "./mmd/iltan/iltan.pmx";
+			let vmdFilePath = "./vmd/choki.vmd";
+
+			this.init = function (cpuNum) {
+
+				switch (cpuNum) {
+					case 0:
+						vmdFilePath = "./vmd/gu.vmd";
+						break;
+					case 1:
+						vmdFilePath = "./vmd/choki.vmd";
+						break;
+					case 2:
+						vmdFilePath = "./vmd/pa.vmd";
+						break;
+				}
+
+				mmd.setAttribute('mmd', 'audio:' + audioFilePath + '; audioDelayTime: 0.1; volume: 0.3; autoplay:true;');
+				mmd.setAttribute('repeat', '1');
+				mmd.setAttribute('scale', '0.2 0.2 0.2');
+				mmd.setAttribute('position', '0 0 50');
+				mmd.setAttribute('visible', 'false');
+				mmd.setAttribute('id', 'mmd01');
+				model.setAttribute('mmd-model', 'model:' + modelFilePath + '; vmd:' + vmdFilePath + ';');
+				model.setAttribute('id', 'mmd-model01');
+				mmd.appendChild(model);
+				scene.appendChild(mmd);
+
+				mmd.addEventListener('play', function (evt) {
+					if (this.firstPlayFlag == undefined) {
+						this.pause();
+					}
+					this.firstPlayFlag = true;
+				});
+
+				mmd.components["mmd"].tick = function (time, delta) {
+					if (!this.playing) { return; }
+					this.helper.animate(delta / 1000);
+
+					// 時間を知るには？
+					// document.querySelector('#mmd01').components["mmd"].helper.audioManager.currentTime
+					// if (this.helper.audioManager.currentTime > 6.5) {
+					// 	this.pause();
+					// }
+				}
+			}
+
+			this.startAnimation = function () {
+				mmd.setAttribute('position', '0 0 0');
+				mmd.setAttribute('visible', 'true');
+				mmd.play();
+			}
+		}
+
+		// メイン
+		document.addEventListener('DOMContentLoaded', function () {
+			this.j = new Janken();
+			this.c = new Character();
+			this.c.init(this.j.getCpuNum());
+
+			// グークリック
+			document.querySelector('#guBox').addEventListener('click', function () {
+				document.jankenStart(0);
+				document.querySelector('#chokiBox').setAttribute('visible', 'false');
+				document.querySelector('#paBox').setAttribute('visible', 'false');
+			});
+
+			// チョキクリック
+			document.querySelector('#chokiBox').addEventListener('click', function () {
+				document.jankenStart(1);
+				document.querySelector('#guBox').setAttribute('visible', 'false');
+				document.querySelector('#paBox').setAttribute('visible', 'false');
+			});
+
+			// パークリック
+			document.querySelector('#paBox').addEventListener('click', function () {
+				document.jankenStart(2);
+				document.querySelector('#guBox').setAttribute('visible', 'false');
+				document.querySelector('#chokiBox').setAttribute('visible', 'false');
+			});
+
+			// キーボードイベント（デバッグ用））
+			document.addEventListener('keydown', function (e) {
+				if (e.keyCode == '32') {
+					document.querySelector('#mmd01').play(); // モーション停止
+				}
+			}, false);
+		}, false);
+
+		// じゃんけん開始イベント（じゃんけん箱クリック時）
+		document.jankenStart = function (playerNum) {
+			if (typeof this.timer !== 'undefined') {
+				return;
+			}
+
+			this.j.init(playerNum);
+
+			// キャラクターアニメーション開始
+			this.timer = setTimeout(function (timer) {
+				document.c.startAnimation();
+				document.querySelector('#camera').emit('startCamera1');
+				document.querySelector('#camera').emit('startCamera2');
+				document.querySelector('#mainLight').setAttribute('color', '#B7B7B7');
+			}, 2000, this);
+
+			// 勝敗表示
+			this.timer2 = setTimeout(function () {
+				document.j.showResult();
+				document.querySelector('#debugWindow').innerHTML = '<a href="javascript: location.reload();">もう一度？</a>';
+			}, 10000, this);
+		}
+	</script>
+	<div id="debugWindow"></div>
+	<a-scene inspector="url: https://aframe.io/releases/0.3.0/aframe-inspector.min.js" antialias="true">
+		<a-assets>
+			<img id="GuTexture" src="img/janken_gu.png">
+			<img id="ChokiTexture" src="img/janken_choki.png">
+			<img id="PaTexture" src="img/janken_pa.png">
+			<img id="LogoTexture" src="img/logo.png">
+			<img id="WinTexture" src="img/win.png">
+			<img id="LoseTexture" src="img/lose.png">
+			<img id="DrawTexture" src="img/draw.png">
+		</a-assets>
+		<!-- 光源 -->
+		<a-light type="ambient" color="#E8E8E8" position="0 40 0" id="mainLight"></a-light>
+		<!-- <a-light type="point" intensity="2" position="2 4 4"></a-light> -->
+
+		<!-- カメラ -->
+		<a-entity position="0 21.8 50" rotation="0 0 0" id="camera">
+			<a-camera near="0.001">
+				<!-- <a-cursor fuse="true"> -->
+				<a-cursor>
+					<a-animation begin="click" easing="ease-in" attribute="scale" dur="150" fill="forwards"
+								 from="0.1 0.1 0.1" to="1 1 1"></a-animation>
+					<a-animation begin="cursor-fusing" easing="ease-in" attribute="scale" dur="1500" fill="backwards"
+								 from="1 1 1" to="0.1 0.1 0.1"></a-animation>
+				</a-cursor>
+			</a-camera>
+			<a-animation attribute="rotation" to="0 0 0" direction="normal" dur="100" easing="linear"
+						 begin="startCamera1"></a-animation>
+			<a-animation attribute="position" to="0 1.5 2.3" direction="normal" dur="1000" easing="linear"
+						 begin="startCamera2"></a-animation>
+		</a-entity>
+
+		<!-- 地面 -->
+		<a-entity environment="preset: forest; dressingAmount: 500; lighting: none;"></a-entity>
+		<!-- <a-plane src="#groundTexture" rotation="-90 0 0" width="30" height="30" repeat="10 10"></a-plane> -->
+
+		<a-entity id="startPhase">
+			<!-- ロゴ -->
+			<a-plane src="#LogoTexture" rotation="0 0 0" position="0 24.5 48" width="4" height="4"
+					 material="transparent:true" id="logo"></a-plane>
+
+			<!-- グー -->
+			<a-box src="#GuTexture" position="-0.8 23 48.7" rotation="0 45 45" scale="0.4 0.4 0.4" id="guBox">
+				<a-animation attribute="position" to="-0.8 23.1 48.7" direction="alternate" dur="2000"
+							 repeat="indefinite">
+				</a-animation>
+				<a-animation attribute="scale" begin="mouseenter" dur="300" to="0.5 0.5 0.5"></a-animation>
+				<a-animation attribute="scale" begin="mouseleave" dur="300" to="0.4 0.4 0.4"></a-animation>
+				<a-animation attribute="rotation" begin="click" dur="2000" to="360 405 45"></a-animation>
+			</a-box>
+
+			<!-- チョキ -->
+			<a-box src="#ChokiTexture" position="0 23 48.7" rotation="0 45 45" scale="0.4 0.4 0.4" id="chokiBox">
+				<a-animation attribute="position" to="0 23.1 48.7" direction="alternate" dur="2000" repeat="indefinite">
+				</a-animation>
+				<a-animation attribute="scale" begin="mouseenter" dur="300" to="0.5 0.5 0.5"></a-animation>
+				<a-animation attribute="scale" begin="mouseleave" dur="300" to="0.4 0.4 0.4"></a-animation>
+				<a-animation attribute="rotation" begin="click" dur="2000" to="360 405 45"></a-animation>
+			</a-box>
+
+			<!-- パー -->
+			<a-box src="#PaTexture" position="0.8 23 48.7" rotation="0 45 45" scale="0.4 0.4 0.4" id="paBox">
+				<a-animation attribute="position" to="0.8 23.1 48.7" direction="alternate" dur="2000"
+							 repeat="indefinite">
+				</a-animation>
+				<a-animation attribute="scale" begin="mouseenter" dur="300" to="0.5 0.5 0.5"></a-animation>
+				<a-animation attribute="scale" begin="mouseleave" dur="300" to="0.4 0.4 0.4"></a-animation>
+				<a-animation attribute="rotation" begin="click" dur="2000" to="360 405 45"></a-animation>
+			</a-box>
+		</a-entity>
+	</a-scene>
+</body>
+
+</html>
