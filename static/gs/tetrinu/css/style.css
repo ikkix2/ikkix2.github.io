@@ -1,0 +1,180 @@
+* {
+	-webkit-user-select: none;
+	-webkit-touch-callout: none;
+	touch-action: manipulation;
+}
+
+html {
+	touch-action: manipulation;
+}
+
+#debugWindow {
+	position: absolute;
+	z-index: 249;
+	width: 100%;
+	top: 0px;
+	right: 0px;
+	padding: 10px 10px;
+	text-align: right;
+	color: rgba(255, 255, 255, 0.9);
+}
+
+#debugWindow * {
+	font-size: 14px;
+	font-weight: 700;
+}
+
+#debugWindow a {
+	text-decoration: none;
+	text-shadow: none;
+}
+
+#hiscore {
+	margin: 0px;
+}
+
+#scoreandlevel {
+	margin: 0px;
+}
+
+#score {
+	display: block;
+}
+
+#level {
+	display: none;
+}
+
+#chatbox {
+	display: none;
+}
+
+#chatbox p.yourComment {
+	color: rgba(255, 00, 99, 0.8);
+}
+
+#optionWindow {
+	display: block;
+	position: absolute;
+	z-index: 255;
+	width: 100%;
+	top: 10px;
+	left: 10px;
+	opacity: 0.9;
+}
+
+#optionWindow #audioIcon {
+	opacity: 0.5;
+}
+
+#changeView {
+	margin-right: 12px;
+}
+
+#description {
+	display: none;
+	margin: 10px 0px;
+}
+
+#chatbox {
+	text-align: right;
+}
+
+#restart {
+	display: none;
+	position: absolute;
+	z-index: 255;
+	width: 100%;
+	padding-top: 140px;
+	text-align: center;
+}
+
+#restart a {
+	padding: 12px 30px;
+	border: solid 2px #fff;
+	font-size: 24px;
+	text-decoration: none;
+	color: rgba(255, 255, 255, 0.9);
+	background-color: rgba(255, 00, 99, 0.8);
+}
+
+div.a-enter-vr {
+	display: none;
+}
+
+#mobileUI {
+	display: block;
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	z-index: 250;
+	width: 100%;
+	height: 100%;
+	color: rgba(255, 255, 255, 0.9);
+}
+
+#mobileUI #mobileController {
+	display: block;
+}
+
+#mobileUI #mobileController div#rotateButton {
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	z-index: 251;
+	width: 100%;
+	height: 100%;
+}
+
+#mobileUI #mobileController div#leftButton {
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	z-index: 252;
+	width: 25%;
+	height: 80%;
+}
+
+#mobileUI #mobileController div#rightButton {
+	position: absolute;
+	top: 0px;
+	right: 0px;
+	z-index: 253;
+	width: 25%;
+	height: 80%;
+}
+
+#mobileUI #mobileController div#downButton {
+	position: absolute;
+	bottom: 0px;
+	left: 10%;
+	z-index: 254;
+	width: 80%;
+	height: 20%;
+}
+
+/* for PC */
+
+@media (min-width: 600px) {
+	#hiscore {
+		margin: 0px 0px 10px;
+	}
+	#scoreandlevel {
+		margin: 10px 0px;
+	}
+	#level {
+		display: block;
+	}
+	#description {
+		display: block;
+	}
+	#chatbox {
+		display: block;
+	}
+	#mobileUI {
+		display: none;
+	}
+	div.a-enter-vr {
+		display: block;
+	}
+}
