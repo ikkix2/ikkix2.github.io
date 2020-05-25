@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Posts on 今日も今日とて（仮）</title>
+    <link>https://ikkix2.github.io/post/</link>
+    <description>Recent content in Posts on 今日も今日とて（仮）</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>ja</language>
+    <lastBuildDate>Tue, 14 Jan 2020 02:00:00 +0900</lastBuildDate>
+    
+	<atom:link href="https://ikkix2.github.io/post/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>ドラゴンクエストⅪ 感想</title>
+      <link>https://ikkix2.github.io/2020/01/videogame-review-dq11/</link>
+      <pubDate>Tue, 14 Jan 2020 02:00:00 +0900</pubDate>
+      
+      <guid>https://ikkix2.github.io/2020/01/videogame-review-dq11/</guid>
+      <description>&lt;p&gt;『&lt;a href=&#34;https://www.dq11.jp/&#34;&gt;ドラゴンクエストXI 過ぎ去りし時を求めて&lt;/a&gt;』を終えました。総プレイ時間は82時間、クエスト回収率は80%程度。ﾅｶﾞｶｯﾀﾖ……
+感想としては「すごく良い話だった！」というのと、「すごく良くない話だった！」というのが半々。遊び終えた人の7割は色々と言いたくなる話でしょう。なので自分もここに書いておくにします。&lt;/p&gt;
+&lt;p&gt;なお、この記事はネタバレを大量に含むのであらかじめご留意くださいませ。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Welcome to Tranquilpeak 0.4.7-BETA</title>
+      <link>https://ikkix2.github.io/post_backup/welcome-to-the-new-tranquilpeak/</link>
+      <pubDate>Mon, 15 Jun 2015 00:00:00 +0000</pubDate>
+      
+      <guid>https://ikkix2.github.io/post_backup/welcome-to-the-new-tranquilpeak/</guid>
+      <description>&lt;p&gt;Tranquilpeak is a gorgeous responsive theme for Hugo blog framework. It has many features and integrated services to improve user experience.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Elements showcase</title>
+      <link>https://ikkix2.github.io/post_backup/elements-showcase/</link>
+      <pubDate>Thu, 28 May 2015 00:00:00 +0000</pubDate>
+      
+      <guid>https://ikkix2.github.io/post_backup/elements-showcase/</guid>
+      <description>&lt;p&gt;Check out how Tranquilpeak theme display well HTML elements (title, paragraph, blockquote, table and more..). It&amp;rsquo;s simple and elegant.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>highlighted code showcase</title>
+      <link>https://ikkix2.github.io/post_backup/highlighted-code-showcase/</link>
+      <pubDate>Mon, 23 Mar 2015 00:00:00 +0000</pubDate>
+      
+      <guid>https://ikkix2.github.io/post_backup/highlighted-code-showcase/</guid>
+      <description>&lt;p&gt;Tranquilpeak Hugo theme have its own theme to highlight source code. It&amp;rsquo;s based on GitHub theme: simple and elegant. Check out how it sublimate source codes.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Tags plugins showcase</title>
+      <link>https://ikkix2.github.io/post_backup/tags-plugins-showcase/</link>
+      <pubDate>Wed, 29 Oct 2014 00:00:00 +0000</pubDate>
+      
+      <guid>https://ikkix2.github.io/post_backup/tags-plugins-showcase/</guid>
+      <description>&lt;p&gt;This post is used to show how tag plugins are displayed. See &lt;a href=&#34;https://github.com/kakawait/hugo-tranquilpeak-theme/blob/master/docs/user.md#tags&#34;&gt;docs&lt;/a&gt; for more info.&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

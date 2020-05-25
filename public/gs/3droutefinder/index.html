@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <title>3D Route Finder</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta property="og:title" content="3D Route Finder">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://ikkix2.github.io/static/gs/3droutefinder/">
+    <meta property="og:image" content="https://ikkix2.github.io/static/gs/3droutefinder/images/icon/icon-256x256.png">
+    <meta name="twitter:card" content="summary">
+	<meta name="apple-mobile-web-app-title" content="Route Finder">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black">
+	<link rel="manifest" href="manifest.json">
+	<link rel="apple-touch-icon" href="images/icon/icon-192x192.png" sizes="192x192" />
+    <link rel="stylesheet" href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.54.0/mapbox-gl.css'>
+    <link rel="stylesheet" href='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-directions/v4.0.0/mapbox-gl-directions.css'>
+    <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.54.0/mapbox-gl.js'></script>
+    <script src='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-directions/v4.0.0/mapbox-gl-directions.js'></script>
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-96600624-2"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'UA-96600624-2');
+    </script>
+</head>
+
+<body>
+    <nav id="menu"></nav>
+    <nav id="menu_geojson"></nav>
+    <div id="map"></div>
+    <script src="app.js"></script>
+</body>
+
+</html>
