@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+  <meta charset="utf-8">
+  <title>俺の単語帳 - おれたん</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <meta property="og:title" content="俺の単語帳 - おれたん">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://ikkix2.github.io/gs/oretan/">
+  <meta property="og:image" content="https://ikkix2.github.io/gs/oretan/images/icon/icon-512x512.png">
+  <meta name="twitter:card" content="summary">
+  <meta name="apple-mobile-web-app-title" content="おれたん">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <link rel="manifest" href="manifest.json">
+  <link rel="apple-touch-icon" href="images/icon/icon-192x192.png" sizes="192x192" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Material+Icons">
+  <link rel="stylesheet" href="<%= BASE_URL %>css/animate.css">
+  <script src="sw.js"></script>
+  <script>
+    window.addEventListener('load', function () {
+      if ('serviceWorker' in navigator) {
+        navigator.serviceWorker.register("sw.js")
+          .then(function (registration) {
+            console.log("serviceWorker registed.");
+          }).catch(function (error) {
+            console.warn("serviceWorker error.", error);
+          });
+      }
+    });
+  </script>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-96600624-2"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+    gtag('config', 'UA-96600624-2');
+  </script>
+</head>
+
+<body>
+  <noscript>
+    <strong>We're sorry but newapp doesn't work properly without JavaScript enabled. Please enable it to continue.</strong>
+  </noscript>
+  <div id="app"></div>
+  <!-- built files will be auto injected -->
+</body>
+
+</html>

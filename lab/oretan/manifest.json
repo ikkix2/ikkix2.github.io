@@ -1,0 +1,32 @@
+{
+  "name": "俺の単語帳 - おれたん",
+  "short_name": "おれたん",
+  "description": "発音チェック機能付き英単語帳",
+  "start_url": "./",
+  "display": "fullscreen",
+  "orientation": "portrait",
+  "background_color": "#333",
+  "theme_color": "#9800FF",
+  "icons": [
+    {
+      "src": "images/icon/icon-128x128.png",
+      "type": "image/png",
+      "sizes": "128x128"
+    },
+    {
+      "src": "images/icon/icon-144x144.png",
+      "type": "image/png",
+      "sizes": "144x144"
+    },
+    {
+      "src": "images/icon/icon-180x180.png",
+      "type": "image/png",
+      "sizes": "180x180"
+    },
+    {
+      "src": "images/icon/icon-192x192.png",
+      "type": "image/png",
+      "sizes": "192x192"
+    }
+  ]
+}
