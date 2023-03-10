@@ -1,0 +1,2 @@
+(window["webpackJsonp"]=window["webpackJsonp"]||[]).push([["trial"],{dbc6:function(t,e,n){"use strict";n.r(e);var a=function(){var t=this,e=t.$createElement;t._self._c;return t._m(0)},l=[function(){var t=this,e=t.$createElement,n=t._self._c||e;return n("div",{staticClass:"abotrialut"},[n("h1",[t._v("Trial!")])])}],r=n("2877"),c={},i=Object(r["a"])(c,a,l,!1,null,null,null);e["default"]=i.exports}}]);
+//# sourceMappingURL=trial.5cafe879.js.map
