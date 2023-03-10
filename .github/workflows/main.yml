@@ -28,6 +28,9 @@ jobs:
 
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
+        env:
+          PUBLISH_BRANCH: master
+          PUBLISH_DIR: ./publicdic
         if: ${{ github.ref == 'refs/heads/main' }}
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
